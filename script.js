@@ -1,11 +1,14 @@
 const cart = ["shoes", "pants", "shirt"];
 
 const promise = createOrder(cart);
+  console.log (promise);
 
 promise.then(function (orderId) {
   console.log(orderId);
-  
-});
+  })
+  .catch(function (err) {
+    console.log(err.message);
+  });
 
 function createOrder() {
   const pr = new Promise (function (res, rej) {
@@ -19,7 +22,10 @@ function createOrder() {
     // logic for createOrder
     const orderId = "585858";
     if(orderId) {
-      res(orderId);
+      setTimeout(function () {
+        res(orderId);
+      }, 5000)
+     
     }
 
 
@@ -29,6 +35,6 @@ function createOrder() {
 }
 
 function validateCart(cart) {
-  return true;
+  return false;
 }
 
